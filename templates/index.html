@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Hero header -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo">📷</div>
+      <h1>Photo Match</h1>
+      <p class="sub">Copy any photo's look — get the shot, then match the edit.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Which AI brain(s) to run -->
+    <div class="engine-bar">
+      <span class="engine-label">Compare with</span>
+      <label class="chip">
+        <input type="checkbox" class="engine" value="claude" checked>
+        <span class="dot claude"></span> Claude <em>paid</em>
+      </label>
+      <label class="chip">
+        <input type="checkbox" class="engine" value="ollama" checked>
+        <span class="dot ollama"></span> Ollama <em>free</em>
+      </label>
+    </div>
+
+    <!-- STEP 1 -->
+    <section class="card">
+      <div class="card-head">
+        <span class="step">1</span>
+        <div>
+          <h2>Get shooting instructions</h2>
+          <p class="muted">Upload the photo you want to copy. You'll get detailed directions on how to take it.</p>
+        </div>
+      </div>
+
+      <label class="uploader" for="ref1">
+        <span class="up-plus">+</span>
+        <span class="up-main">Choose reference photo</span>
+        <span class="up-sub">or drag &amp; drop</span>
+        <input type="file" id="ref1" accept="image/*" hidden>
+      </label>
+      <img id="ref1Preview" class="preview" hidden alt="reference preview">
+
+      <button id="analyzeBtn" class="btn" disabled>Get instructions</button>
+      <div id="instructions" class="columns" hidden></div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="card">
+      <div class="card-head">
+        <span class="step">2</span>
+        <div>
+          <h2>Match your photo</h2>
+          <p class="muted">Took your shot? Upload it with the reference to get a Lightroom preset
+            (<code>.xmp</code>) that matches the look, plus tweak notes.</p>
+        </div>
+      </div>
+
+      <div class="two-up">
+        <div>
+          <label class="uploader" for="ref2">
+            <span class="up-plus">+</span>
+            <span class="up-main">Reference photo</span>
+            <span class="up-sub">or drag &amp; drop</span>
+            <input type="file" id="ref2" accept="image/*" hidden>
+          </label>
+          <img id="ref2Preview" class="preview" hidden alt="reference preview">
+        </div>
+        <div>
+          <label class="uploader" for="mine">
+            <span class="up-plus">+</span>
+            <span class="up-main">Your photo</span>
+            <span class="up-sub">or drag &amp; drop</span>
+            <input type="file" id="mine" accept="image/*" hidden>
+          </label>
+          <img id="minePreview" class="preview" hidden alt="your preview">
+        </div>
+      </div>
+
+      <button id="matchBtn" class="btn" disabled>Build matching preset</button>
+      <div id="matchResult" class="columns" hidden></div>
+    </section>
+
+    <footer class="foot">
+      Made with Claude · runs locally on your Mac
+    </footer>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# These are the "building blocks" (libraries) the app needs.
+# You install them once with:  pip install -r requirements.txt
+
+flask           # runs the little website / web app
+anthropic       # talks to the Claude API (paid brain)
+openai          # talks to the OpenAI/GPT API (paid brain + AI photo editor)
+ollama          # talks to a FREE AI model running on your own Mac
+python-dotenv   # lets us keep our secret API keys in a .env file
+pillow          # opens and resizes images before sending them to the AI
